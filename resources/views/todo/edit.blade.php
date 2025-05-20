@@ -28,8 +28,12 @@
                 <div class="mb-4">
                     <label for="status" class="block text-gray-700 dark:text-gray-200">Status</label>
                     <select id="status" name="status" class="w-full mt-1 p-2 border rounded">
-                        <option value="pending" @if(old('status', $todo->status)==='pending') selected @endif>Pending</option>
-                        <option value="completed" @if(old('status', $todo->status)==='completed') selected @endif>Completed</option>
+                        <option value="Draft" @if(old('status', $todo->status)==='Draft') selected @endif>Draft</option>
+                        <option value="Applied" @if(old('status', $todo->status)==='Applied') selected @endif>Applied</option>
+                        <option value="Interview Scheduled" @if(old('status', $todo->status)==='Interview Scheduled') selected @endif>Interview Scheduled</option>
+                        <option value="Interviewed" @if(old('status', $todo->status)==='Interviewed') selected @endif>Interviewed</option>
+                        <option value="Accepted" @if(old('status', $todo->status)==='Accepted') selected @endif>Accepted</option>
+                        <option value="Rejected" @if(old('status', $todo->status)==='Rejected') selected @endif>Rejected</option>
                     </select>
                     @error('status')<div class="text-red-600 text-sm">{{ $message }}</div>@enderror
                 </div>

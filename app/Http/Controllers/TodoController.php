@@ -37,7 +37,7 @@ class TodoController extends Controller
             'task' => 'required|string|max:255',
             'description' => 'nullable|string',
             'due_date' => 'nullable|date',
-            'status' => 'required|in:pending,completed',
+            'status' => 'required|in:Draft,Applied,Interview Scheduled,Interviewed,Accepted,Rejected',
         ]);
         $validated['user_id'] = Auth::user()->id;
         Todo::create($validated);
@@ -71,7 +71,7 @@ class TodoController extends Controller
             'task' => 'required|string|max:255',
             'description' => 'nullable|string',
             'due_date' => 'nullable|date',
-            'status' => 'required|in:pending,completed',
+            'status' => 'required|in:Draft,Applied,Interview Scheduled,Interviewed,Accepted,Rejected',
         ]);
         $todo = Todo::findOrFail($id);
         $todo->update($validated);
