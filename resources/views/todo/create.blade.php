@@ -1,41 +1,31 @@
 <x-app-layout>
     @if(Auth::check())
-        <x-slot name="header">
-            <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-                {{ __('Tambah') }}
-            </h2>
-        </x-slot>
     @else
-        <x-slot name="header">
-            <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-                {{ __('Tambah') }}
-            </h2>
-        </x-slot>
     @endif
 
     <div class="py-6 max-w-2xl mx-auto">
-        <div class="bg-white dark:bg-gray-800 shadow rounded p-6">
+        <div class="bg-white shadow rounded p-6">
             <form action="{{ route('todo.store') }}" method="POST">
                 @csrf
                 <div class="mb-4">
-                    <label for="task" class="block text-gray-700 dark:text-gray-200">Task</label>
-                    <input id="task" type="text" name="task" class="w-full mt-1 p-2 border rounded"
-                        value="{{ old('task') }}" required>
-                    @error('task')<div class="text-red-600 text-sm">{{ $message }}</div>@enderror
+                    <label for="job_applied" class="block text-blue-800">Job Applied</label>
+                    <input id="job_applied" type="text" name="job_applied" class="w-full mt-1 p-2 border rounded"
+                        value="{{ old('job_applied') }}" required>
+                    @error('job_applied')<div class="text-red-600 text-sm">{{ $message }}</div>@enderror
                 </div>
                 <div class="mb-4">
-                    <label for="description" class="block text-gray-700 dark:text-gray-200">Description</label>
-                    <textarea id="description" name="description" class="w-full mt-1 p-2 border rounded">{{ old('description') }}</textarea>
-                    @error('description')<div class="text-red-600 text-sm">{{ $message }}</div>@enderror
+                    <label for="place" class="block text-blue-800">Place</label>
+                    <textarea id="place" name="place" class="w-full mt-1 p-2 border rounded">{{ old('place') }}</textarea>
+                    @error('place')<div class="text-red-600 text-sm">{{ $message }}</div>@enderror
                 </div>
                 <div class="mb-4">
-                    <label for="due_date" class="block text-gray-700 dark:text-gray-200">Due Date</label>
-                    <input id="due_date" type="date" name="due_date" class="w-full mt-1 p-2 border rounded"
-                        value="{{ old('due_date') }}">
-                    @error('due_date')<div class="text-red-600 text-sm">{{ $message }}</div>@enderror
+                    <label for="date_applied" class="block text-blue-800">Date Applied</label>
+                    <input id="date_applied" type="date" name="date_applied" class="w-full mt-1 p-2 border rounded"
+                        value="{{ old('date_applied') }}">
+                    @error('date_applied')<div class="text-red-600 text-sm">{{ $message }}</div>@enderror
                 </div>
                 <div class="mb-4">
-                    <label for="status" class="block text-gray-700 dark:text-gray-200">Status</label>
+                    <label for="status" class="block text-blue-800">Status</label>
                     <select id="status" name="status" class="w-full mt-1 p-2 border rounded">
                         <option value="Draft" @if(old('status')==='Draft') selected @endif>Draft</option>
                         <option value="Applied" @if(old('status')==='Applied') selected @endif>Applied</option>

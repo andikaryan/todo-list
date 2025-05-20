@@ -8,13 +8,13 @@
     <div class="py-6 max-w-2xl mx-auto">
         <div class="bg-white dark:bg-gray-800 shadow rounded p-6">
             <div class="mb-4">
-                <strong>Task:</strong> {{ $todo->task }}
+                <strong>Job Applied:</strong> {{ $todo->job_applied }}
             </div>
             <div class="mb-4">
-                <strong>Description:</strong> {{ $todo->description }}
+                <strong>Place:</strong> {{ $todo->place }}
             </div>
             <div class="mb-4">
-                <strong>Due Date:</strong> {{ $todo->due_date }}
+                <strong>Date Applied:</strong> {{ $todo->date_applied }}
             </div>
             <div class="mb-4">
                 <strong>Status:</strong> {{ ucfirst($todo->status) }}

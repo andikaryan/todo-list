@@ -9,13 +9,13 @@ class Todo extends Model
     protected $table = 'to_do';
 
     protected $fillable = [
-        'task',
-        'description',
-        'due_date',
+        'job_applied',
+        'place',
+        'date_applied',
         'status',
         'user_id',
     ];
-    
+
     public function user()
     {
         return $this->belongsTo(User::class);

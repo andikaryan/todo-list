@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('to_do', function (Blueprint $table) {
             $table->id();
-            $table->string('task');
-            $table->text('description')->nullable();
-            $table->date('due_date')->nullable();
+            $table->string('job_applied');
+            $table->text('place')->nullable();
+            $table->date('date_applied')->nullable();
             $table->enum('status', ['Draft', 'Applied', 'Interview Scheduled', 'Interviewed', 'Accepted', 'Rejected'])->default('draft');
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
             $table->timestamps();

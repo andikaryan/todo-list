@@ -13,7 +13,7 @@ class TodoController extends Controller
      */
     public function index()
     {
-        $todos = Todo::all();
+        $todos = Todo::where('user_id', Auth::id())->paginate(5);
         return view('todo.index', compact('todos'));
     }
 
@@ -34,9 +34,9 @@ class TodoController extends Controller
             return redirect()->route('login');
         }
         $validated = $request->validate([
-            'task' => 'required|string|max:255',
-            'description' => 'nullable|string',
-            'due_date' => 'nullable|date',
+            'job_applied' => 'required|string|max:255',
+            'place' => 'nullable|string',
+            'date_applied' => 'nullable|date',
             'status' => 'required|in:Draft,Applied,Interview Scheduled,Interviewed,Accepted,Rejected',
         ]);
         $validated['user_id'] = Auth::user()->id;
@@ -68,9 +68,9 @@ class TodoController extends Controller
     public function update(Request $request, string $id)
     {
         $validated = $request->validate([
-            'task' => 'required|string|max:255',
-            'description' => 'nullable|string',
-            'due_date' => 'nullable|date',
+            'job_applied' => 'required|string|max:255',
+            'place' => 'nullable|string',
+            'date_applied' => 'nullable|date',
             'status' => 'required|in:Draft,Applied,Interview Scheduled,Interviewed,Accepted,Rejected',
         ]);
         $todo = Todo::findOrFail($id);
