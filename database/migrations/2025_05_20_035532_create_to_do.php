@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('to_do', function (Blueprint $table) {
             $table->id();
-            $table->string('job_application');
-            $table->string('place');
-            $table->date('date_of_application');
-            $table->enum('status', ['draft', 'applied', 'interview scheduled', 'interviewed', 'accepted', 'rejected'])->default('draft');
+            $table->string('task');
+            $table->text('description')->nullable();
+            $table->date('due_date')->nullable();
+            $table->enum('status', ['pending', 'completed'])->default('pending');
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
             $table->timestamps();
         });
